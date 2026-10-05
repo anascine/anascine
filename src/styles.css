@@ -805,7 +805,9 @@ button {
     min-height: 86vh;
     padding-top: 40px;
   }
-
+.hero-video {
+  object-fit: contain;
+  }
   .hero__rail {
     grid-template-columns: 1fr;
     gap: 12px;
