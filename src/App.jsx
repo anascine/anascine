@@ -470,13 +470,13 @@ export default function App() {
 
               <div className="contact-list">
                 <div className="info-row"><span>Instagram</span><strong>@anas.cine</strong></div>
-                <div className="info-row"><span>Email</span><strong>Anasshamsudheen9544@gmail.com</strong></div>
+                <div className="info-row"><span>Email</span><strong>anascine.in@gmail.com</strong></div>
                 <div className="info-row"><span>WhatsApp</span><strong>+91 9633214193</strong></div>
               </div>
 
               <div className="socials">
                 <a href="https://instagram.com/anas.cine" target="_blank" rel="noreferrer">◎</a>
-                <a href="mailto:hello@anasine.com">✉</a>
+                <a href="mailto:anascine.in@gmail.com">✉</a>
                 <a href="https://wa.me/919633214193" target="_blank" rel="noreferrer">✆</a>
               </div>
             </div>
