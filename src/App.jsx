@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
+import { buildFilterOptions, normalizePortfolioData, normalizeText } from './portfolioUtils';
+
 const navLinks = [
   { href: '#top', label: 'Home' },
   { href: '#portfolio', label: 'Work' },
@@ -7,37 +9,6 @@ const navLinks = [
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
 ];
-
-const normalizeText = (value) => (typeof value === 'string' ? value.trim() : '');
-
-const buildFilterOptions = (videos) => {
-  const categories = [...new Set(videos
-    .map((video) => normalizeText(video.category))
-    .filter(Boolean))];
-
-  return [
-    { value: 'all', label: 'All' },
-    ...categories.map((category) => ({
-      value: category.toLowerCase(),
-      label: category,
-    })),
-  ];
-};
-
-const withBaseUrl = (url) => {
-  if (!url) return url;
-  const normalizedPath = url.replace(/^\/+/, '');
-  return `${import.meta.env.BASE_URL}${encodeURI(normalizedPath)}`;
-};
-
-const normalizePortfolioData = (data) => ({
-  videos: (data.videos || [])
-    .map((video) => ({
-      ...video,
-      video: withBaseUrl(video.video),
-    }))
-    .filter((video) => normalizeText(video.video) && normalizeText(video.title)),
-});
 
 const defaultPortfolioData = normalizePortfolioData({
   videos: [
