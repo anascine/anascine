@@ -47,6 +47,24 @@
       "title": "Long-Form Brand Story",
       "category": "Long-form",
       "video": "/assets/videos/long_form/long_form1.mp4"
+    },
+    {
+      "id": 8,
+      "title": "Talking Head 1",
+      "category": "Talking Head",
+      "video": "/assets/videos/Talking_head/Talking_head1.mp4"
+    },
+    {
+      "id": 9,
+      "title": "Talking Head 2",
+      "category": "Talking Head",
+      "video": "/assets/videos/Talking_head/Talking_head2.mp4"
+    },
+    {
+      "id": 10,
+      "title": "Talking Head 3",
+      "category": "Talking Head",
+      "video": "/assets/videos/Talking_head/Tolking_head3.mp4"
     }
   ]
 }

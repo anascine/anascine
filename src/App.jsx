@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { buildFilterOptions, normalizePortfolioData, normalizeText } from './portfolioUtils';
 
@@ -20,6 +20,9 @@ const defaultPortfolioData = normalizePortfolioData({
     { id: 5, title: 'Brand Motion Graphics', category: 'Motion Graphics', video: '/assets/videos/motion_graphics/motion_graphics1.mp4' },
     { id: 6, title: 'SaaS Intro Animation', category: 'Motion Graphics', video: '/assets/videos/motion_graphics/motion_graphics2.mp4' },
     { id: 7, title: 'Long-Form Brand Story', category: 'Long-form', video: '/assets/videos/long_form/long_form1.mp4' },
+    { id: 8, title: 'Talking Head 1', category: 'Talking Head', video: '/assets/videos/Talking_head/Talking_head1.mp4' },
+    { id: 9, title: 'Talking Head 2', category: 'Talking Head', video: '/assets/videos/Talking_head/Talking_head2.mp4' },
+    { id: 10, title: 'Talking Head 3', category: 'Talking Head', video: '/assets/videos/Talking_head/Tolking_head3.mp4' },
   ],
 });
 
@@ -32,7 +35,6 @@ export default function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [validationError, setValidationError] = useState('');
   const [portfolioData, setPortfolioData] = useState(defaultPortfolioData);
-  const heroVideoRef = useRef(null);
   const [inquiryForm, setInquiryForm] = useState({
     name: '',
     email: '',
@@ -59,22 +61,6 @@ export default function App() {
   );
   const featuredVideoSrc = featuredProject?.video ?? '';
   const filterOptions = useMemo(() => buildFilterOptions(portfolioProjects), [portfolioProjects]);
-
-  useEffect(() => {
-    const heroVideo = heroVideoRef.current;
-    if (!heroVideo || !featuredVideoSrc) return;
-
-    heroVideo.muted = true;
-    const playVideo = async () => {
-      try {
-        await heroVideo.play();
-      } catch {
-        // Browsers may block programmatic playback until user interaction; the video remains muted and ready.
-      }
-    };
-
-    playVideo();
-  }, [featuredVideoSrc]);
 
   const visibleProjects = useMemo(() => {
     if (activeFilter === 'all') {
@@ -257,7 +243,7 @@ export default function App() {
       <header className="site-header">
         <div className="container navbar">
           <a href="#top" className="brand" aria-label="Anas Shamsudheen home page">
-            <span className="brand__mark">A</span>
+             
             <span>Anas</span>
           </a>
 
@@ -291,18 +277,11 @@ export default function App() {
 
       <main id="top">
         <section className="hero">
-          <video
-            ref={heroVideoRef}
-            key={featuredVideoSrc || 'hero-video-placeholder'}
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-label="Featured portfolio video"
-          >
-            <source src={featuredVideoSrc || ''} type="video/mp4" />
-          </video>
+          <img
+            className="hero-profile"
+            src={`${import.meta.env.BASE_URL}assets/Profile.jpeg`}
+            alt="Anas Shamsudheen"
+          />
           <div className="hero__overlay" />
 
           <div className="container hero__content reveal">
